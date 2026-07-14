@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
-const SITE = process.env.SITE_URL || 'https://tod-home2u.vercel.app';
+const SITE = process.env.SITE_URL || 'https://www.todbg.com';
 
 // Static site + one serverless route (/api/lead) via the Vercel adapter.
 export default defineConfig({
