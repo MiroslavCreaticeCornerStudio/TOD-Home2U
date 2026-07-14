@@ -1,0 +1,21 @@
+# build output
+dist/
+.vercel/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# environment secrets — BREVO_API_KEY lives here, never commit
+.env
+.env.*
+!.env.example
+
+# system
+.DS_Store
+
+# personal overrides
+.claude/settings.local.json
+CLAUDE.local.md

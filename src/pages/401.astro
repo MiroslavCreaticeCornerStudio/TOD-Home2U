@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Visual replica only: Webflow's password protection (/.wf_auth) does not exist
+// outside Webflow, so the form is intentionally inert.
+---
+
+<BaseLayout title="Protected page" noindex>
+  <div class="utility_component">
+    <div class="utility_form-block w-password-page w-form">
+      <form id="email-form" name="email-form" data-name="Email Form" method="post" class="utility_form w-password-page" onsubmit="return false"><img width="106" src="/images/utility-lock.svg" alt="" class="utility_image" />
+        <h3>Protected Page</h3>
+        <div class="padding-xxsmall"></div><input class="form_input w-password-page w-input" autofocus="true" maxlength="256" name="pass" data-name="field" placeholder="Enter your password" type="password" id="pass" />
+        <div class="padding-xxsmall"></div><input type="submit" data-wait="Please wait..." class="button w-password-page w-button" value="Submit" />
+        <div class="form_message-error-wrapper w-password-page w-form-fail">
+          <div class="form_message-error">
+            <div>Incorrect password. Please try again.</div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</BaseLayout>

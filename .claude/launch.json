@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "tod-home2u-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 4321,
+      "cwd": "/Users/miroslavivanov/Documents/Creative Corner Studio/Astro Webiste/TOD - Home2u/tod-home2u"
+    }
+  ]
+}

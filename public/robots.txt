@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /401
+Disallow: /api/
+
+Sitemap: https://tod-home2u.vercel.app/sitemap-index.xml

@@ -1,0 +1,44 @@
+// Replaces the Webflow-hosted form handler: posts the contact form to our
+// serverless endpoint (/api/lead → SkyGuru CRM + Brevo) and reproduces the
+// Webflow success/error UI (hide form, show .w-form-done / .w-form-fail).
+function initFormSubmit() {
+  document.querySelectorAll('.w-form form').forEach((form) => {
+    const wrapper = form.closest('.w-form');
+    const done = wrapper?.querySelector('.w-form-done');
+    const fail = wrapper?.querySelector('.w-form-fail');
+    const submitBtn = form.querySelector('input[type="submit"]');
+    let busy = false;
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (busy) return;
+      busy = true;
+
+      const originalValue = submitBtn?.value;
+      if (submitBtn && submitBtn.dataset.wait) submitBtn.value = submitBtn.dataset.wait;
+
+      try {
+        const data = Object.fromEntries(new FormData(form).entries());
+        const response = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, page: window.location.href }),
+        });
+        if (!response.ok) throw new Error(`lead endpoint responded ${response.status}`);
+        form.style.display = 'none';
+        if (done) done.style.display = 'block';
+        if (fail) fail.style.display = 'none';
+      } catch (err) {
+        console.error('Form submission failed:', err);
+        if (fail) fail.style.display = 'block';
+      } finally {
+        if (submitBtn && originalValue) submitBtn.value = originalValue;
+        busy = false;
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initFormSubmit();
+});

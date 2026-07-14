@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import FixedButtons from '../components/FixedButtons.astro';
+import Hero from '../components/Hero.astro';
+import KeyBenefits from '../components/KeyBenefits.astro';
+import StickyFeatures from '../components/StickyFeatures.astro';
+import Location from '../components/Location.astro';
+import Apartments from '../components/Apartments.astro';
+import Benefits from '../components/Benefits.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="TOD">
+  <Fragment slot="head">
+    <link rel="preload" as="image" href="/images/Hero_image.webp" fetchpriority="high" />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'TOD — Home2U',
+        url: Astro.site?.toString(),
+        logo: new URL('/images/webclip.png', Astro.site).toString(),
+        telephone: '+359875363355',
+      })}
+    />
+  </Fragment>
+
+  <div class="page-wrapper">
+    <div class="global-elements">
+      <div class="global-styles hide w-embed"></div>
+      <div class="global-body-scripts hide w-embed"></div>
+    </div>
+    <Navbar />
+    <FixedButtons />
+    <main class="main-wrapper">
+      <Hero />
+      <KeyBenefits />
+      <StickyFeatures />
+      <Location />
+      <Apartments />
+      <Benefits />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
+
+  <script src="../scripts/main.js"></script>
+</BaseLayout>

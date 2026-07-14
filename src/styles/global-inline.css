@@ -1,0 +1,375 @@
+/* Inline <style> blocks from the Webflow export index.html, merged in source order. */
+/* Do not reorder — later blocks intentionally override earlier ones. */
+
+/* ── block 00 ── */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
+  -webkit-appearance:none;
+}
+
+/* ── block 01 ── */
+/* Ensure all elements inherit the color from its parent */
+body * {
+   /* color: inherit; */
+}
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-slider-arrow-left,
+.w-slider-arrow-right,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+	pointer-events: none;
+}
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+.padding-0 {
+  padding: 0rem !important;
+}
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+/* Apply "..." at 100% width */
+.truncate-width { 
+		width: 100%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+/* Removes native scrollbar */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none; 
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+header, section {
+	position: relative;
+  overflow: clip;
+}
+[data-letter-wave]{
+  --lw-offset: 1.8em;          /* travel distance = ghost distance below */
+  --lw-duration: 0.6s;         /* per-letter travel time */
+  --lw-stagger: 0.02s;         /* delay between letters — the wave */
+  --lw-ease: cubic-bezier(0.625, 0.05, 0, 1);
+}
+/* wrapper the script builds around the label */
+.lw-text{
+  display: inline-block;
+  clip-path: inset(-10% 0%);   /* hides the ghost copy sitting below */
+}
+.lw-text span{
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
+  translate: 0 0;
+  text-shadow: 0 var(--lw-offset) currentColor;   /* ghost letter below */
+  transition: translate var(--lw-duration)
+              calc(var(--index) * var(--lw-stagger))
+              var(--lw-ease);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference){
+  [data-letter-wave]:hover .lw-text span{
+    translate: 0 calc(var(--lw-offset) * -1);
+  }
+}
+
+/* ── block 02 ── */
+[data-menu-wrap].is-scrolled {
+  background-color: var(--background-color--background-primary);      /* or whatever */
+  color: var(--text-color--text-primary);
+}
+  [data-burger-toggle][aria-expanded="true"] [data-burger-line] {
+  background-color: var(--background-color--background-tertiary);
+}
+  /* burger lines when the nav is scrolled/white */
+[data-menu-wrap].is-scrolled [data-burger-line] {
+  background-color: var(--background-color--background-tertiary);   /* dark, to read against the white bar */
+}
+
+/* ── block 03 ── */
+[data-menu-wrap] {
+    --nav-height: 4.75em;
+  }
+  .mega-nav__panel-col:last-of-type {
+    border: none;
+  }
+  /* Allow easier content editing when panel state is 'active' inside of the designer*/
+  .wf-design-mode [data-nav-content][data-panel-state='active'] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+  }
+  .wf-design-mode [data-menu-open]:has([data-nav-content][data-panel-state='active']) [data-dropdown-bg] {
+    opacity: 1;
+    inset: 0;
+  }
+  .wf-design-mode [data-mobile-nav='active'] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+/* ── block 04 ── */
+.fixed_buttons {
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.45s ease;
+  transform: translateX(-50%) translateY(0);
+}
+.fixed_buttons.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(100%);
+}
+
+/* ── block 05 ── */
+/* Webflow Designer resets — Designer canvas only, all breakpoints, never live */
+.wf-design-mode .sticky-features__text-list { overflow: auto; max-height: 45em; gap: 2em; justify-content: flex-start; }
+.wf-design-mode .sticky-features__text-item { position: relative; }
+.wf-design-mode [data-sticky-feature-item] { visibility: visible; }
+/* Visual wrap — only one, always un-clipped at every breakpoint */
+[data-sticky-feature-visual-wrap] { clip-path: inset(0% round 0em); }
+/* Desktop — animation start state: only the first text item shown, JS reveals the rest */
+@media (min-width: 992px) {
+  [data-sticky-feature-item]:first-of-type { visibility: visible; }
+}
+/* Tablet and below — no pin/animation, so show all text items */
+@media (max-width: 991px) {
+  [data-sticky-feature-item] { visibility: visible; }
+}
+
+/* ── block 06 ── */
+/* Desktop – 3 cols: remove right edge on every 3rd item */
+.benefits_grid .benefit-item:nth-child(3n) {
+  border-right-color: transparent;
+}
+/* Tablet – 2 cols */
+@media screen and (max-width: 991px) {
+  .benefits_grid .benefit-item:nth-child(3n) {
+    border-right-color: var(--border-color--border-primary); /* restore */
+  }
+  .benefits_grid .benefit-item:nth-child(2n) {
+    border-right-color: transparent;
+  }
+}
+/* Mobile landscape and below – 1 col */
+@media screen and (max-width: 767px) {
+  .benefits_grid .benefit-item:nth-child(n) {
+    border-right-color: transparent;
+  }
+}
+
+/* ── block 07 ── */
+/* Field: Default Icon State - Hidden by default */
+    .form-field-icon,
+    .radiocheck-field-icon {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+    /* Field: Input/Select/Textarea Transitions */
+    [data-validate] input,
+    [data-validate] textarea,
+    [data-validate] select,
+    [data-validate] .form_dropdown {
+        transition: border-color 0.2s ease;
+    }
+    /* Field: Error State */
+    [data-validate].is--error input,
+    [data-validate].is--error textarea,
+    [data-validate].is--error select,
+    [data-validate].is--error .form_dropdown {
+        border-color: var(--form-validation--error-border);
+    }
+    /* Field: Error Icon Visibility */
+    [data-validate].is--error .form-field-icon.is--error,
+    [data-validate].is--error .radiocheck-field-icon.is--error {
+        opacity: 1;
+        user-select: auto;
+        pointer-events: auto;
+				cursor: help;
+    }
+    /* Field: Success State */
+    [data-validate].is--success input,
+    [data-validate].is--success textarea,
+    [data-validate].is--success select,
+    [data-validate].is--success .form_dropdown {
+        border-color: var(--form-validation--success-border);
+    }
+    /* Field: Success Icon Visibility */
+    [data-validate].is--success .form-field-icon.is--success,
+    [data-validate].is--success .radiocheck-field-icon.is--success {
+        opacity: 1;
+    }
+    /* Field: Custom Radio or Checkbox Focused State */
+    [data-form-validate] .radiocheck-field input:focus-visible~.radiocheck-custom {
+        background-color: var(--form-validation--radio-or-checkbox--focused-background);
+        color: var(--form-validation--radio-or-checkbox--focused-color);
+    }
+    /* Field: Custom Radio or Checkbox Checked State */
+    [data-form-validate] .radiocheck-field input:focus-visible:checked~.radiocheck-custom,
+    [data-form-validate] .radiocheck-field input:checked~.radiocheck-custom {
+        background-color: var(--form-validation--radio-or-checkbox--checked-background);  /* This is the checkbox tick / radio button bullet fill color */
+        color: var(--form-validation--radio-or-checkbox--checked-color); /* This is the checkbox tick / radio button bullet color */
+    }
+    /* Field: Radio/Checkbox Label Spacing */
+    [data-form-validate] .radiocheck-field .radiocheck-label.is--small {
+        margin-top: 0.125em;
+    }
+    /* Field: Custom Radio or Checkbox Error State */
+    [data-validate].is--error .radiocheck-custom {
+        border-color: var(--form-validation--error-border);
+    }
+    /* Field: Custom Radio or Checkbox Success State */
+    [data-validate].is--success .radiocheck-custom {
+        border-color: var(--form-validation--success-border);
+    }
+    /* Field: Checkbox Error State - Checked (when multiple selections required) */
+    [data-validate].is--error input:checked~.radiocheck-custom {
+        border-color: var(--form-validation--error-border);
+    }
+    /* Field: Select Placeholder State */
+    [data-form-validate] select:has(option[value=""]:checked) {
+        color: rgba(19, 19, 19, 0.3);
+    }
+    /* Field: Radio/Checkbox Hover State - Only when not checked */
+    [data-form-validate] .radiocheck-field:hover input:not(:checked)~.radiocheck-custom {
+    }
+    /* Field: Radio/Checkbox Hover State - Alternate Theme */
+    [data-form-validate] .radiocheck-field.is-alternate:hover input:not(:checked)~.radiocheck-custom {
+    }
