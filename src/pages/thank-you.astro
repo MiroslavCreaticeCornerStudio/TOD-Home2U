@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+// Shown after a successful contact-form submission (form-submit.js redirects
+// here). noindex + excluded from the sitemap; GTM can use this URL as the
+// conversion page-view trigger.
+---
+
+<BaseLayout title="Благодарим за запитването — TOD" noindex>
+  <div class="utility_component">
+    <div class="utility_form-block w-form">
+      <div class="form-notification-icon" style="position: static; width: 4rem; height: 4rem; margin: 0 auto;"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 24 24" fill="none">
+          <path d="M11.25 14.25L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M15 10.5L11.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M3 12C3 16.9706 7.02943 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02943 16.9706 3 12 3C7.02943 3 3 7.02943 3 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg></div>
+      <div class="padding-xxsmall"></div>
+      <h3>Успешно изпратихте заявката!</h3>
+      <div class="padding-xxsmall"></div>
+      <div>Благодарим за интереса към TOD.<br />Ще се свържем с вас скоро.</div>
+      <div class="padding-xxsmall"></div>
+      <a href="/" class="button w-button">Обратно към началото</a>
+    </div>
+  </div>
+</BaseLayout>

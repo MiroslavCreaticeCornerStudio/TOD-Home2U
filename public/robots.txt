@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /401
 Disallow: /api/
+Disallow: /thank-you
 
 Sitemap: https://www.todbg.com/sitemap-index.xml

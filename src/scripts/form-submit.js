@@ -1,10 +1,9 @@
 // Replaces the Webflow-hosted form handler: posts the contact form to our
-// serverless endpoint (/api/lead → SkyGuru CRM + Brevo) and reproduces the
-// Webflow success/error UI (hide form, show .w-form-done / .w-form-fail).
+// serverless endpoint (/api/lead → SkyGuru CRM + Brevo), redirects to
+// /thank-you on success, and shows the Webflow .w-form-fail UI on error.
 function initFormSubmit() {
   document.querySelectorAll('.w-form form').forEach((form) => {
     const wrapper = form.closest('.w-form');
-    const done = wrapper?.querySelector('.w-form-done');
     const fail = wrapper?.querySelector('.w-form-fail');
     const submitBtn = form.querySelector('input[type="submit"]');
     let busy = false;
@@ -25,9 +24,8 @@ function initFormSubmit() {
           body: JSON.stringify({ ...data, page: window.location.href }),
         });
         if (!response.ok) throw new Error(`lead endpoint responded ${response.status}`);
-        form.style.display = 'none';
-        if (done) done.style.display = 'block';
-        if (fail) fail.style.display = 'none';
+        window.location.assign('/thank-you');
+        return;
       } catch (err) {
         console.error('Form submission failed:', err);
         if (fail) fail.style.display = 'block';

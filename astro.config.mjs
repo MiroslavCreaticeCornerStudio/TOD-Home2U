@@ -12,7 +12,7 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/401') && !page.includes('/404'),
+      filter: (page) => !page.includes('/401') && !page.includes('/404') && !page.includes('/thank-you'),
     }),
   ],
 });
