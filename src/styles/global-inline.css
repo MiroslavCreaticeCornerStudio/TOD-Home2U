@@ -373,3 +373,11 @@ header, section {
     /* Field: Radio/Checkbox Hover State - Alternate Theme */
     [data-form-validate] .radiocheck-field.is-alternate:hover input:not(:checked)~.radiocheck-custom {
     }
+
+/* ── post-launch tweaks (not from the Webflow export) ── */
+/* Hero H1 at 64px on desktop; tablet/mobile keep the original sizes */
+@media (min-width: 992px) {
+  .section_hero h1 {
+    font-size: 64px;
+  }
+}
