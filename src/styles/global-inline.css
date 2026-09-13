@@ -381,3 +381,11 @@ header, section {
     font-size: 64px;
   }
 }
+
+/* Sticky features: multiple per-item visuals (site addition). Below desktop the
+   GSAP crossfade does not run, so only the first image is shown — same as the
+   original single-image behavior. GSAP's inline styles override this on desktop. */
+[data-sticky-feature-visual]:not(:first-child) {
+  opacity: 0;
+  visibility: hidden;
+}

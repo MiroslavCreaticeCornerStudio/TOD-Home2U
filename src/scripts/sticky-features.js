@@ -23,6 +23,12 @@ function initStickyFeatures(root){
       const getTexts = el => Array.from(el.querySelectorAll("[data-sticky-feature-text]"));
       const getDivider = el => el.querySelector("[data-divider]"); // ← one divider per item now
       gsap.set(items[0], { autoAlpha: 1 });
+      /* Visuals: one image per text item, crossfaded in sync with the text
+         transitions (site addition — the export shipped a single static image).
+         Only syncs when the counts match, so a lone image stays static. */
+      const visuals = Array.from(w.querySelectorAll("[data-sticky-feature-visual]"));
+      const syncVisuals = visuals.length === count && count > 1;
+      if (syncVisuals) visuals.forEach((v, i) => gsap.set(v, { autoAlpha: i === 0 ? 1 : 0 }));
       /* Dividers: visible by default on the active (first) item, collapsed on the rest.
          NOT tied to scrub — they animate as part of each text transition. */
       const dividers = items.map(getDivider);
@@ -56,6 +62,13 @@ function initStickyFeatures(root){
         if(fromIndex === toIndex) return;
         animateOut(items[fromIndex]);
         animateIn(items[toIndex]);
+        if (syncVisuals) {
+          // overwrite kills the still-running opposite tween on fast scrolls,
+          // otherwise a longer fade-in outlives the next fade-out and the
+          // image stays stuck visible
+          gsap.to(visuals[fromIndex], { autoAlpha: 0, ease: "power4.out", duration: 0.4, overwrite: true });
+          gsap.to(visuals[toIndex], { autoAlpha: 1, ease: "power4.out", duration: DURATION, overwrite: true });
+        }
       }
       function animateOut(itemEl){
         const texts = getTexts(itemEl);
@@ -109,7 +122,7 @@ function initStickyFeatures(root){
       // Clear inline styles left by scroll-time tweens when leaving desktop
       cleanups.push(() => {
         const textEls = items.flatMap(getTexts);
-        gsap.set([...items, ...textEls, ...dividers, progressBar, ...header].filter(Boolean), { clearProps: "all" });
+        gsap.set([...items, ...textEls, ...dividers, ...visuals, progressBar, ...header].filter(Boolean), { clearProps: "all" });
       });
     });
     return () => cleanups.forEach(fn => fn());
